@@ -656,6 +656,7 @@ local function YNHJN_fake_script() -- ImageLabel.Script
 		visible = false
 	end)
 	script.Parent.TopBar.Close.Activated:Connect(function()
+		visible = false
 		script.Parent.Parent:Destroy()
 	end)
 	local uis = game:GetService("UserInputService")
