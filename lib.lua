@@ -45,8 +45,20 @@ local Tabs = Instance.new("Folder")
 local Script = Instance.new('LocalScript', ImageLabel)
 local fonty = Enum.Font.Ubuntu
 --Properties:
-
-ScreenGui.Parent = game.CoreGui
+local success, response = pcall(
+local coregui = game.CoreGui
+local playergui = game.Players.LocalPlayer.PlayerGui
+if coregui ~= playergui and coregui:GetChildren() ~= playergui:GetChildren() do
+  return true
+else
+return false
+end
+)
+if response == true then
+  ScreenGui.Parent = game.CoreGui
+else
+  ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+end
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = ScreenGui
